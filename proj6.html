@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Veggie Table Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: radial-gradient(circle at top left, rgba(118, 182, 255, 0.18), transparent 28%),
+                        radial-gradient(circle at bottom right, rgba(155, 219, 140, 0.16), transparent 25%),
+                        linear-gradient(180deg, #0b1a2d 0%, #0f233d 48%, #08101f 100%);
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        .menu-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            color: white;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        #breakfast {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZjhLTZ0VRc6xwBcXV4fCmQ6kC6z3w9m9WyQ6xp_txwmd1pevMAjIh_qRLuNFeGOH4Eu596DMGtn66BYJc6PadJLOKpPwdISv84m-ePPho-pdCWRxmxiIiS3Ydi6_JdG927cxm5govomd7fPrDTIK-pmlAzaoCLaKHgAik37kD_GG3bPayJNsoM8B-W5OV/s320/ChatGPT%20Image%20May%202,%202026,%2001_05_56%20PM.png');
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+        #lunch {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNXwYHWRTEmSMX1h_xozaQvuFXIF040f-TUj3F4Vt3ANcCAVd7ptxkf6dhx8tlfRY6iQ73I3mfXl-XAd8DLexzfy3p4K9ognR7QttyKMjgq8ner6QaLhznhZFR3Yi9PD4TPKW1pCi3HkxsimixOMTaannqSBU2wbwyjYWZ0fRvFPh9tMngtThEjKtJ32sB/s320/ChatGPT%20Image%20May%202,%202026,%2001_31_26%20PM.png'); /* Replace with your lunch background image URL */
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+        #rice-items {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiGsit5OcrGndM26slGh3BVeGg1TrxLhLEZgIb3CBy9U_NxcwLM7-KcPgpV7b7aWbMfckS4w8CWpcTyAcpnFd1f-0fSy8UMWVPFgO71jzgM2CPuVvCKwiYvj7CuPNYFOtjLm9Nag4XMFOu0N_Fhtu0Q03zo20wUufdBtq5Ck3LkhnCd1L7I5gi30tLVIsT/s320/output%20(7).jpg'); /* Replace with your lunch background image URL */
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+        #meals {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiGsit5OcrGndM26slGh3BVeGg1TrxLhLEZgIb3CBy9U_NxcwLM7-KcPgpV7b7aWbMfckS4w8CWpcTyAcpnFd1f-0fSy8UMWVPFgO71jzgM2CPuVvCKwiYvj7CuPNYFOtjLm9Nag4XMFOu0N_Fhtu0Q03zo20wUufdBtq5Ck3LkhnCd1L7I5gi30tLVIsT/s320/output%20(7).jpg'); /* Replace with your lunch background image URL */
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+        #dinner {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgByn-Xzlb5aTioUWCV9cp11b-75B_BkD0k_BI-wq52RpW-KdLHi5mVAN54g2aAETdKCYlQ5ESKNAIqlzb1glIhbGFCP3d1IaX5Wc3KeWxo7fGCMVXVmDHa3Rve1uEs7KZwhaJ8eNbCfakANOwXH1NbamCBYyJjWOPLCgIbH7kaXI3-HuS3-WckqRPaL44Y/s320/ChatGPT%20Image%20May%202,%202026,%2001_26_42%20PM.png'); /* Replace with your dinner background image URL */
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+        #snacks {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkaBgjHCiAiWmHagDk4BCea1P5cVUm-BNTt8kDhwOXs0yTotY8ONy5WajnO5Haxj_PfFikS2iG_vg3BvCvlbv7CqQX3bHDrcb8t09Jc-MmezdYQMQ5hBlf5WpBuvGtTpvaBPOlSlQGIA1cnotVpy_jRWlhFDIap3AKaC_N3SsytZyJeBfSC0oop7ABu_vp/s1536/ChatGPT%20Image%20May%202,%202026,%2001_46_08%20PM.png'); /* Replace with your snacks background image URL */
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+
+	#drinks {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguC-W53A0aYofyuSJpMNdNlx1N37tC7d0qaxZf0XQ33kjyThAclWTWAcygk2Bo9cW4ea1swkZGU-5iBbxW8BFgsn6hfLsaSUXM8cR4FFpOjGRoAyvg8cM3wGtGV2dVrjLs0ww4NKqy8BAwbDu0Snsf8y5fwTXC_PCHs7hMeZiTzk2LIypW0Xa_r6GARN3E/s320/output%20(5).jpg');             
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: 400px;
+        }
+
+
+        .menu-item {
+ width:800px;
+            background-color: rgba(236, 254, 255, 0.6); /* Semi-transparent white */
+            margin: 5px 0;
+            padding: 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;   
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s; /* Transition for hover effect */
+        }
+        .menu-item:hover {
+            transform: scale(1.02); /* Scale up on hover */
+        }
+        .price {
+            font-weight: bold;
+            color:rgb(43, 6, 226);
+            text-shadow: 1px 1px rgb(238, 238, 238);
+        }
+        #cart {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 300px;
+        }
+        #cart h2 {
+            margin: 0;
+            text-align: center;
+        }
+        #cartItems {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quantity-controls {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Transition for button hover effect */
+        }
+        .button-primary {
+            background-color: #6047ff; /* Signature color */
+            color: white;
+        }
+        .button-primary:hover {
+            background-color: #218838; /* Darker shade on hover */
+        }
+        .button-secondary {
+            background-color: #007bff; /* Signature color */
+            color: white;
+        }
+        .button-secondary:hover {
+            background-color: #0069d9; /* Darker shade on hover */
+        }
+        .menu-item img {
+		color:#6047ff;
+            width: 100px; /* Set a size for item images */
+            height: auto;
+            margin-right: 10px; /* Space between image and text */
+        }
+    </style>
+</head>
+<body>
+    <h1>The Veggie Table Restaurant</h1>
+
+    <div>
+        <button onclick="showSection('breakfast')">Breakfast</button>
+        <button onclick="showSection('lunch')">Lunch</button>
+        <button onclick="showSection('dinner')">Dinner</button>
+        <button onclick="showSection('snacks')">Snacks</button>
+        <button onclick="showSection('drinks')">Drinks</button>
+    </div>
+
+    <!-- Breakfast Section -->
+    <div id="breakfast" class="menu-section">
+        <h2>Breakfast</h2>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.PMfGN895jDrwoa6jhTRYHgAAAA?rs=1&pid=ImgDetMain" alt="Poori with Sagu"> <!-- Replace with actual image -->
+            <h3>Poori with Sagu&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Poori with Sagu', 50)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.calRdsY2_WzMI8vrjYWKRAHaGP?w=600&h=506&rs=1&pid=ImgDetMain" alt="Masala Dosa"> <!-- Replace with actual image -->
+            <h3>Masala Dosa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Masala Dosa', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://tasteblends.ca/wp-content/uploads/2021/09/Mysoor-Dosa-1024x1024.jpg" alt="Masala Dosa"> <!-- Replace with actual image -->
+            <h3>Mysure Dosa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Mysure Dosa', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__1200_0_0_0_auto.jpg" alt="Benne Dosa"> <!-- Replace with actual image -->
+            <h3>Benne Dosa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Benne Dosa', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.ytimg.com/vi/db_zH9sl82U/hqdefault.jpg"> <!-- Replace with actual image -->
+            <h3>Neer Dosa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Neer Dosa', 60)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://ccsa.adanione.com/medias/300Wx300H-original-null?context=bWFzdGVyfHJvb3R8MTc5MDh8aW1hZ2UvanBlZ3xoZmQvaGQzLzg4MDMyMzE1OTY1NzQvMzAwV3gzMDBIX29yaWdpbmFsX251bGx8M2ViMDYwYTQ3NzZlM2I4YTcxYTczNzJlMGUwYzY0NjhjNzlmY2FkNTE0MDRhOTNiMzI0NjE0NDU0OGNhNmI3NA" alt="Idli with Chutney"> <!-- Replace with actual image -->
+            <h3>Idli with Chutney&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Idli with Chutney', 50)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://miro.medium.com/v2/resize:fit:590/0*fMAkwpT3V86SikS3.jpg"> <!-- Replace with actual image -->
+            <h3>Tatte Idli&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Tatte Idli', 50)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://thumbs.dreamstime.com/b/south-indian-food-rava-kichadi-chutney-sambar-39248638.jpg" alt="Uppitu"> <!-- Replace with actual image -->
+            <h3>Uppitu&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="price">₹30</span></h3>
+            <button onclick="addToCart('Uppitu', 30)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.pillsbury.in/wp-content/uploads/2021/09/Kesari.jpg" alt="Kesari Bath"> <!-- Replace with actual image -->
+            <h3>Kesari Bath&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹20</span></h3>
+            <button onclick="addToCart('Kesari Bath', 20)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.pinimg.com/originals/6d/f9/76/6df97695497224b638b0116b699c9f5f.jpg" alt="Vegetable Paratha"> <!-- Replace with actual image -->
+            <h3>Alu Paratha&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Alu Paratha', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://i1.wp.com/atasteofflavours.com/wp-content/uploads/2019/09/IMG_8139.jpg?fit=1242%2C828&ssl=1" alt="Vegetable Paratha"> <!-- Replace with actual image -->
+            <h3>Paddu&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹40</span></h3>
+            <button onclick="addToCart('Paddu', 40)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- Lunch Section -->
+    <div id="lunch" class="menu-section" style="display:none;">
+        <h2>Lunch</h2>
+
+
+        <button onclick="showSection('rice-items')">Rice Items</button>
+        <div id="rice-items" class="menu-section" style="display:none;">
+            <div class="menu-item">
+                <img src="https://th.bing.com/th/id/OIP.634QBas_vG--rQrv-tKosAHaGZ?rs=1&pid=ImgDetMain" alt="Pulao"> <!-- Replace with actual image -->
+                <h3>Pulao&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+                <button onclick="addToCart('Pulao', 50)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2017/05/puliyogare-recipe.jpg" alt="Puliyogare"> <!-- Replace with actual image -->
+                <h3>Puliyogare&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+                <button onclick="addToCart('Puliyogare', 50)">Add to Cart</button>
+            </div>
+        <div class="menu-item">
+            <img src="https://www.techniajz.com/admin/ckeditor/ckfinder/userfiles/images/KarnatakaCuisines5-250x250.jpg?nr=true" alt="Bisibele Bath"> <!-- Replace with actual image -->
+            <h3>Bisibele Bath&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Bisibele Bath', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.pinimg.com/originals/0f/98/53/0f98535dc1edb1339cfb98b42da61aa5.jpg" alt="Fried Rice"> <!-- Replace with actual image -->
+            <h3>Fried Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Fried Rice', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://4.bp.blogspot.com/-belp7PkgKII/Wceea9buTSI/AAAAAAAAbKg/ktUUm7wmUmYpY5CUQtHZq8u4fhSdLQrfACEwYBhgL/s1600/9159.jpg" alt="Gobi Rice"> <!-- Replace with actual image -->
+            <h3>Gobi Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Gobi Rice', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.funfoodfrolic.com/wp-content/uploads/2022/11/Jeera-Rice-Blog.jpg" alt="Jeera Rice"> <!-- Replace with actual image -->
+            <h3>Jeera Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Jeera Rice', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.rJr6myjBfgx-GLTpSLz_qwHaGM?rs=1&pid=ImgDetMain" alt="Ghee Rice"> <!-- Replace with actual image -->
+            <h3>Ghee Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Ghee Rice', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.5bwyvob-f_lzjgfGYwav3wAAAA?rs=1&pid=ImgDetMain" alt="Curd Rice"> <!-- Replace with actual image -->
+            <h3>Curd Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Curd Rice', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/tomato-bath.jpg" alt="Tomato Bath"> <!-- Replace with actual image -->
+            <h3>Tomato Bath&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Tomato Bath', 60)">Add to Cart</button>
+        </div>
+    </div>
+
+    <button onclick="showSection('meals')">Meals</button>
+        <div id="meals" class="menu-section" style="display:none;">
+            <div class="menu-item">
+                <img src="https://th.bing.com/th/id/OIP.uPSZE9s9peXlAqdR-bAFoQHaHY?w=550&h=548&rs=1&pid=ImgDetMain" alt="North Karnataka Special Meals"> <!-- Replace with actual image -->
+                <h3>North Karnataka Special Meals <span class="price">₹120</span></h3>
+                <button onclick="addToCart('North Karnataka Special Meals', 120)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2021/06/IMG_0026.jpg" alt="Punjabi Thali"> <!-- Replace with actual image -->
+                <h3>Punjabi Thali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+                <button onclick="addToCart('Punjabi Thali', 120)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://th.bing.com/th/id/OIP.vpnqd9YCOuNKMG5n0AILRAHaFj?w=1160&h=870&rs=1&pid=ImgDetMain" alt="North Indian Special Thali"> <!-- Replace with actual image -->
+                <h3>North Indian Special Thali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+                <button onclick="addToCart('North Indian Special Thali', 120)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.discovermyindia.in/wp-content/uploads/2021/07/malvani-cuisine.jpg" alt="Karavali Special Full Meal"> <!-- Replace with actual image -->
+                <h3>Karavali Special Full Meal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+                <button onclick="addToCart('Karavali Special Full Meal', 120)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://imgmedia.lbb.in/media/2022/05/628d02abb244e5600088c718_1653408427183.jpg" alt="Bengaluru Special Full Meal"> <!-- Replace with actual image -->
+                <h3>Bengaluru Special Full Meal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+                <button onclick="addToCart('Bengaluru Special Full Meal', 120)">Add to Cart</button>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+    <div class="menu-item">
+        <img src="https://th.bing.com/th/id/OIP.634QBas_vG--rQrv-tKosAHaGZ?rs=1&pid=ImgDetMain" alt="Pulao"> <!-- Replace with actual image -->
+        <h3>Pulao&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+        <button onclick="addToCart('Pulao', 50)">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2017/05/puliyogare-recipe.jpg" alt="Puliyogare"> <!-- Replace with actual image -->
+        <h3>Puliyogare&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+        <button onclick="addToCart('Puliyogare', 50)">Add to Cart</button>
+    </div>
+<div class="menu-item">
+    <img src="https://www.techniajz.com/admin/ckeditor/ckfinder/userfiles/images/KarnatakaCuisines5-250x250.jpg?nr=true" alt="Bisibele Bath"> <!-- Replace with actual image -->
+    <h3>Bisibele Bath&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+    <button onclick="addToCart('Bisibele Bath', 50)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://i.pinimg.com/originals/0f/98/53/0f98535dc1edb1339cfb98b42da61aa5.jpg" alt="Fried Rice"> <!-- Replace with actual image -->
+    <h3>Fried Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+    <button onclick="addToCart('Fried Rice', 60)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://4.bp.blogspot.com/-belp7PkgKII/Wceea9buTSI/AAAAAAAAbKg/ktUUm7wmUmYpY5CUQtHZq8u4fhSdLQrfACEwYBhgL/s1600/9159.jpg" alt="Gobi Rice"> <!-- Replace with actual image -->
+    <h3>Gobi Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+    <button onclick="addToCart('Gobi Rice', 60)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://www.funfoodfrolic.com/wp-content/uploads/2022/11/Jeera-Rice-Blog.jpg" alt="Jeera Rice"> <!-- Replace with actual image -->
+    <h3>Jeera Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+    <button onclick="addToCart('Jeera Rice', 60)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://th.bing.com/th/id/OIP.rJr6myjBfgx-GLTpSLz_qwHaGM?rs=1&pid=ImgDetMain" alt="Ghee Rice"> <!-- Replace with actual image -->
+    <h3>Ghee Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+    <button onclick="addToCart('Ghee Rice', 60)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://th.bing.com/th/id/OIP.5bwyvob-f_lzjgfGYwav3wAAAA?rs=1&pid=ImgDetMain" alt="Curd Rice"> <!-- Replace with actual image -->
+    <h3>Curd Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+    <button onclick="addToCart('Curd Rice', 50)">Add to Cart</button>
+</div>
+<div class="menu-item">
+    <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/tomato-bath.jpg" alt="Tomato Bath"> <!-- Replace with actual image -->
+    <h3>Tomato Bath&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+    <button onclick="addToCart('Tomato Bath', 60)">Add to Cart</button>
+</div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.uPSZE9s9peXlAqdR-bAFoQHaHY?w=550&h=548&rs=1&pid=ImgDetMain" alt="North Karnataka Special Meals"> <!-- Replace with actual image -->
+            <h3>North Karnataka Special Meals&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+            <button onclick="addToCart('North Karnataka Special Meals', 120)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2021/06/IMG_0026.jpg" alt="Punjabi Thali"> <!-- Replace with actual image -->
+            <h3>Punjabi Thali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+            <button onclick="addToCart('Punjabi Thali', 120)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.vpnqd9YCOuNKMG5n0AILRAHaFj?w=1160&h=870&rs=1&pid=ImgDetMain" alt="North Indian Special Thali"> <!-- Replace with actual image -->
+            <h3>North Indian Special Thali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+            <button onclick="addToCart('North Indian Special Thali', 120)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.discovermyindia.in/wp-content/uploads/2021/07/malvani-cuisine.jpg" alt="Karavali Special Full Meal"> <!-- Replace with actual image -->
+            <h3>Karavali Special Full Meal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+            <button onclick="addToCart('Karavali Special Full Meal', 120)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://imgmedia.lbb.in/media/2022/05/628d02abb244e5600088c718_1653408427183.jpg" alt="Bengaluru Special Full Meal"> <!-- Replace with actual image -->
+            <h3>Bengaluru Special Full Meal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹120</span></h3>
+            <button onclick="addToCart('Bengaluru Special Full Meal', 120)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Dinner Section -->
+    <div id="dinner" class="menu-section" style="display:none;">
+        <h2>Dinner</h2>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.5bwyvob-f_lzjgfGYwav3wAAAA?rs=1&pid=ImgDetMain" alt="Khichdi">
+            <h3>Curd Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Curd Rice', 60)">Add to Cart</button>
+        </div>
+            <div class="menu-item">
+                <img src="https://www.funfoodfrolic.com/wp-content/uploads/2022/11/Jeera-Rice-Blog.jpg" alt="Khichdi">
+                <h3>Jeera Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+                <button onclick="addToCart('Jeera Rice', 60)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://th.bing.com/th/id/R.efb6877ff7ee29797b6ae9cd9190a88b?rik=4qfMWWFdmkvNQw&riu=http%3a%2f%2f4.bp.blogspot.com%2f-2SpR-7qrmSg%2fVbrWD44xp0I%2fAAAAAAAACTU%2fHkBTBUeWXng%2fs1600%2fDSCN9560.1.jpg&ehk=NFnsXEDfLKlH9Dp1W00rbs6bSctYCiTMmpO6PuNqJNA%3d&risl=&pid=ImgRaw&r=0" alt="Khichdi">
+                <h3>Lemon Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+                <button onclick="addToCart('Lemon Rice', 60)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://th.bing.com/th/id/OIP.rJr6myjBfgx-GLTpSLz_qwHaGM?rs=1&pid=ImgDetMain" alt="Khichdi">
+                <h3>Ghee Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+                <button onclick="addToCart('Ghee Rice', 60)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/originals/0f/98/53/0f98535dc1edb1339cfb98b42da61aa5.jpg">
+                <h3>Fried Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+                <button onclick="addToCart('Fried Rice', 60)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="https://4.bp.blogspot.com/-belp7PkgKII/Wceea9buTSI/AAAAAAAAbKg/ktUUm7wmUmYpY5CUQtHZq8u4fhSdLQrfACEwYBhgL/s1600/9159.jpg" alt="Khichdi">
+                <h3>Gobi Rice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+                <button onclick="addToCart('Gobi Rice', 60)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snacks Section -->
+    <div id="snacks" class="menu-section" style="display:none;">
+        <h2>Snacks</h2>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/R.5e9d914158f20abde43751bc56170aff?rik=IVjPf86fA0ExdQ&riu=http%3a%2f%2fwww.zedamagazine.com%2fwp-content%2fuploads%2f2018%2f06%2fIndian-Food-Samosa-Dish-HD-Wallpapers.jpg&ehk=CIZsxVe5CLA%2fpZXkiCdJuoTdrhucm2fgYqo%2fkXVfHls%3d&risl=&pid=ImgRaw&r=0" alt="Samosa"> <!-- Replace with actual image -->
+            <h3>Samosa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹30</span></h3>
+            <button onclick="addToCart('Samosa', 30)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.RtvRXzELNEUbjvpLH4CTfgHaEK?rs=1&pid=ImgDetMain" alt="Gobimanchurian"> <!-- Replace with actual image -->
+            <h3>Gobimanchurian&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹30</span></h3>
+            <button onclick="addToCart('Gobimanchurian', 60)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sneha-archanaskitchen.com/Sweet__Spicy_Pineapple_Pani_Puri_Recipe_.jpg" alt="Pani Poori"> <!-- Replace with actual image -->
+            <h3>Pani Poori <span class="price">₹30</span></h3>
+            <button onclick="addToCart('Pani Poori', 30)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.marionskitchen.com/wp-content/uploads/2022/05/Mumbai-Street-Toastie-02-1-585x585.jpg">
+            <h3>Veg Grilled Sandwich <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Veg Grilled Sandwich', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.a8TiOdfH8p2ihbalSVgCfgHaEK?rs=1&pid=ImgDetMain">
+            <h3>Paneer Grilled Sandwich&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Paneer Grilled Sandwic', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.t_ltv8dRkVonmKKUCFtIYgHaE8?rs=1&pid=ImgDetMain">
+            <h3>Sweet Corn Grilled Sandwich&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹50</span></h3>
+            <button onclick="addToCart('Sweet Corn Grilled Sandwich', 50)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.9Bw0ec3CayO7SAOTFI3YuAHaHK?w=1080&h=1044&rs=1&pid=ImgDetMain" alt="Pav Bhaji"> <!-- Replace with actual image -->
+            <h3>Pav Bhaji&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹30</span></h3>
+            <button onclick="addToCart('Pav Bhaji', 30)">Add to Cart</button>
+        </div>
+
+    </div>
+
+
+<div id="drinks" class="menu-section" style="display:none;">
+        <h2>Drinks</h2>
+        <h2>Hot Drinks</h2>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.gZHWMih1tz1TCJB1bTPQqgHaGW?rs=1&pid=ImgDetMain" alt="Samosa"> <!-- Replace with actual image -->
+            <h3>Tea&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="price">₹15</span></h3>
+            <button onclick="addToCart('Tea', 15)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.BSP4bZJ0kWXLzrBgU_L0IQHaE8?rs=1&pid=ImgDetMain" alt="Pakora"> <!-- Replace with actual image -->
+            <h3>Coffee&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹15</span></h3>
+            <button onclick="addToCart('Coffee', 15)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.F--iPt2eMyJg-JGJrGF3LgHaE7?rs=1&pid=ImgDetMain" alt="Chaat"> <!-- Replace with actual image -->
+            <h3>Milk&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹15</span></h3>
+            <button onclick="addToCart('Milk', 15)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.Rtl01wGiHE9R00_nI-u-5wAAAA?rs=1&pid=ImgDetMain" alt="Dhokla"> <!-- Replace with actual image -->
+            <h3>Badam Milk&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹20</span></h3>
+            <button onclick="addToCart('Badam Milk', 20)">Add to Cart</button>
+        </div>
+        <h2>Cold Drinks</h2>
+        <div class="menu-item">
+            <img src="https://i1.wp.com/www.thecreolemeltingpot.com/wp-content/uploads/2018/08/Lime-Juice-Fresh-1.png?fit=680%2C500&ssl=1">
+            <h3>Fresh Lime Juice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="price">₹60</span></h3>
+            <button onclick="addToCart('Fresh Lime Juice', 30)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.kxzvbAvoWNgLy8mENLyReAHaE8?rs=1&pid=ImgDetMain">
+            <h3>Orange Juice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Orange Juice', 40)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.27arqS3qnfCJJxc8z87oXwHaE8?rs=1&pid=ImgDetMain">
+            <h3>Watermelon Juice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Watermelon Juice', 40)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.7Ks_A0K5SyXZUKgGq0AV3QHaE8?rs=1&pid=ImgDetMain">
+            <h3>Mango Juice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="price">₹60</span></h3>
+            <button onclick="addToCart('Mango Juice', 40)">Add to Cart</button>
+        </div>
+    </div>
+
+
+
+    <!-- Cart -->
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: ₹<span id="totalPrice">0</span></p>
+        <button class="button-primary" onclick="checkout()"><a href="C:\Users\Sanketh kulkarni\OneDrive\Desktop\web developer\proj\proj4.html">Checkout</a></button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.menu-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+            cart.forEach((cartItem, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${cartItem.item} - ₹${cartItem.price}`;
+                const controls = document.createElement('span');
+                controls.className = 'quantity-controls';
+                controls.innerHTML = `
+                    <button class="button-secondary" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                li.appendChild(controls);
+                cartItems.appendChild(li);
+            });
+            document.getElementById('totalPrice').textContent = total;
+        }
+
+        function removeFromCart(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function checkout() {
+            alert(`Total amount: ₹${total}. Thank you for your order!`);
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+    </script>
+</body>
+</html>

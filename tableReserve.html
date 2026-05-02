@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Reservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #fcfc00;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #08101f;
+      background-image:
+        radial-gradient(circle at top left, rgba(118, 182, 255, 0.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 176, 98, 0.14), transparent 24%),
+        linear-gradient(180deg, #10233f 0%, #0d1627 45%, #0f233d 100%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    h1 {
+      color: #8a9cff;
+      text-align: center;
+      font-family: cursive;
+      font-size: xx-large;
+      font-weight: 900;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.55);
+    }
+    .reservation-form {
+      width: min(500px, calc(100% - 40px));
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .reservation-form h2 {
+      color: #6c63d7;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .form-group button {
+      background-color: #6c63d7;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .form-group button:hover {
+      background-color: #6c9cf5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+<h1>The Veggie Table Restaurant</h1>
+</header>
+<div class="reservation-form">
+  <h2>Table Reservation</h2>
+  <form id="reservationForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+    </div>
+    <div class="form-group">
+      <label for="guests">Number of Guests:</label>
+      <select id="guests" name="guests" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6+</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" onclick="window.open('thank.html', '_blank')">Reserve Table</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
